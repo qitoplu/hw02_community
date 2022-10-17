@@ -13,7 +13,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.all()[:POSTS_QUANTITY]
+    posts = group.posts.all()[:POSTS_QUANTITY]
     context = {
         'groups': group,
         'posts': posts
